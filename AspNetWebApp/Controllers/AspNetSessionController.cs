@@ -18,7 +18,10 @@ namespace AspNetWebApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(SessionDemoModel demoModel)
         {
-            HttpContext.Session["SampleSessionItem"] = demoModel;
+            if (System.Web.HttpContext.Current?.Session != null)
+            {
+                System.Web.HttpContext.Current.Session["SampleSessionItem"] = demoModel;
+            }
 
             return View(demoModel);
         }

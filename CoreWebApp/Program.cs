@@ -47,7 +47,6 @@ app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseSystemWebAdapters();
-app.MapRazorPages();
 
 try
 {
