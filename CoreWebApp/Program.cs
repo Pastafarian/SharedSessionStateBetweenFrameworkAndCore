@@ -22,7 +22,7 @@ builder.Services.AddSystemWebAdapters()
     .AddRemoteAppClient(options =>
 {
     options.RemoteAppUrl = new("https://localhost:44389/");
-    options.ApiKey = "d5bad3d1-4a61-4090-bd74-18428f96ee95";
+    options.ApiKey = builder.Configuration["RemoteAppApiKey"];
 }).AddAuthenticationClient(true)
     .AddSessionClient();
 var app = builder.Build();

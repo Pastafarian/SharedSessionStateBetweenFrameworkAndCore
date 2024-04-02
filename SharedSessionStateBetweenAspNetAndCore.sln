@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MvcCoreApp", "MvcCoreApp\Mv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{19DEA8A6-57F7-47E0-8F89-24F7F6524D72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{67776769-6AF3-4261-9986-8107EC40CF72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "Framework\Framework.csproj", "{AC21FCCA-FB2C-4FD9-9A37-3116E5BB9CFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{19DEA8A6-57F7-47E0-8F89-24F7F6524D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19DEA8A6-57F7-47E0-8F89-24F7F6524D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19DEA8A6-57F7-47E0-8F89-24F7F6524D72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67776769-6AF3-4261-9986-8107EC40CF72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67776769-6AF3-4261-9986-8107EC40CF72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67776769-6AF3-4261-9986-8107EC40CF72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67776769-6AF3-4261-9986-8107EC40CF72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC21FCCA-FB2C-4FD9-9A37-3116E5BB9CFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC21FCCA-FB2C-4FD9-9A37-3116E5BB9CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC21FCCA-FB2C-4FD9-9A37-3116E5BB9CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC21FCCA-FB2C-4FD9-9A37-3116E5BB9CFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
