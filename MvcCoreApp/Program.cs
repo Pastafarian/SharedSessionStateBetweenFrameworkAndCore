@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.SystemWebAdapters;
 
 var builder = WebApplication.CreateBuilder();
-builder.Services.AddReverseProxy().LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
+//builder.Services.AddReverseProxy().LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
 
 // These must match the data protection settings in MvcApp Startup.Auth.cs for cookie sharing to work
 var sharedApplicationName = "CommonMvcAppName";
@@ -20,7 +20,7 @@ builder.Services.AddSystemWebAdapters()
     .AddJsonSessionSerializer(options => ClassLibrary.RemoteServiceUtils.RegisterSessionKeys(options.KnownKeys))
     .AddRemoteAppClient(options =>
     {
-        options.RemoteAppUrl = new(builder.Configuration["ReverseProxy:Clusters:fallbackCluster:Destinations:fallbackApp:Address"]);
+        options.RemoteAppUrl = new("https://localhost:44339/");
         options.ApiKey = builder.Configuration["RemoteAppApiKey"];
     })
     .AddAuthenticationClient(true)
@@ -69,7 +69,7 @@ app.UseEndpoints(endpoints =>
     // This method can be used to enable session (or read-only session) on all controllers
     //.RequireSystemWebAdapterSession();
 
-    app.MapReverseProxy();
+    //   app.MapReverseProxy();
 });
 
 app.Run();

@@ -1,6 +1,9 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace ClassLibrary;
+
+[Serializable]
 public class SessionDemoModel
 {
     [Display(Name = "Integer session item")]

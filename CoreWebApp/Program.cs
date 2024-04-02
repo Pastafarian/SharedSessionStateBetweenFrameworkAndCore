@@ -9,13 +9,13 @@ builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(new DirectoryInfo(Path.Combine(Path.GetTempPath(), "sharedkeys", sharedApplicationName)))
     .SetApplicationName(sharedApplicationName);
 
-// Add services to the container.
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+
 builder.Services.AddAuthentication()
     .AddCookie("SharedCookie", options => options.Cookie.Name = ".AspNet.ApplicationCookie");
 
@@ -43,9 +43,10 @@ app.UseRouting();
 app.MapDefaultControllerRoute()
     .RequireSystemWebAdapterSession();
 app.UseSession();
-app.UseSystemWebAdapters();
+
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseSystemWebAdapters();
 app.MapRazorPages();
 
 try
@@ -57,10 +58,4 @@ catch (Exception e)
 
     Console.WriteLine(e);
     throw;
-}
-
-public class Foo
-{
-    public string Name { get; set; }
-    public string Bar { get; set; }
 }
