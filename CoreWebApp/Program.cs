@@ -9,18 +9,13 @@ builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(new DirectoryInfo(Path.Combine(Path.GetTempPath(), "sharedkeys", sharedApplicationName)))
     .SetApplicationName(sharedApplicationName);
 
-builder.Services.AddSession(options =>
-{
-    options.IdleTimeout = TimeSpan.FromMinutes(30);
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true;
-});
 
 builder.Services.AddAuthentication()
     .AddCookie("SharedCookie", options => options.Cookie.Name = ".AspNet.ApplicationCookie");
 
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddSystemWebAdapters()
     .AddJsonSessionSerializer(options => ClassLibrary.RemoteServiceUtils.RegisterSessionKeys(options.KnownKeys))
     .AddWrappedAspNetCoreSession()
@@ -40,9 +35,7 @@ if (!app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseRouting();
-app.MapDefaultControllerRoute()
-    .RequireSystemWebAdapterSession();
-app.UseSession();
+app.MapDefaultControllerRoute();
 
 app.UseAuthentication();
 app.UseAuthorization();
