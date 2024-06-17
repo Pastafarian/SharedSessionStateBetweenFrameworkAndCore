@@ -3,6 +3,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using ClassLibrary;
 
 namespace Framework
 {
@@ -19,7 +20,7 @@ namespace Framework
                 .AddProxySupport(options => options.UseForwardedHeaders = true)
                 .AddJsonSessionSerializer(options =>
                 {
-                    options.RegisterKey<string>("crumbs");
+                    options.RegisterKey<SessionDemoModel>("crumbs");
                     options.RegisterKey<string>("language");
                 })
                 .AddRemoteAppServer(options =>

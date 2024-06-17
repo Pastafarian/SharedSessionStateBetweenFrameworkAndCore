@@ -1,12 +1,18 @@
+using ClassLibrary;
+
 var builder = WebApplication.CreateBuilder(args);
+
 
 builder.Services
     .AddSystemWebAdapters()
     .AddJsonSessionSerializer(options =>
     {
-        options.RegisterKey<string>("crumbs");
+        options.RegisterKey<SessionDemoModel>("crumbs");
         options.RegisterKey<string>("language");
     })
+
+
+    .AddWrappedAspNetCoreSession()
     .AddRemoteAppClient(options =>
     {
         options.RemoteAppUrl = new("http://localhost:57806/");

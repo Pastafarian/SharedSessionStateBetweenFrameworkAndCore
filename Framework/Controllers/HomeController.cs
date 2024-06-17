@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using ClassLibrary;
 
 namespace Framework.Controllers
 {
@@ -7,7 +8,11 @@ namespace Framework.Controllers
         public ActionResult Index()
         {
             Session["language"] = "uk/eng";
-            Session["crumbs"] = "fooo";
+            Session["crumbs"] = new SessionDemoModel
+            {
+                IntSessionItem = 411,
+                StringSessionItem = "Hello, World!"
+            };
             return View();
         }
 

@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using ClassLibrary;
 using Core.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SystemWebAdapters;
@@ -18,7 +19,7 @@ namespace Core.Controllers
         public IActionResult Index()
         {
 
-            var crumbs = System.Web.HttpContext.Current?.Session?["crumbs"] as string;
+            var crumbs = System.Web.HttpContext.Current?.Session?["crumbs"] as SessionDemoModel;
             var language = System.Web.HttpContext.Current?.Session?["language"] as string;
             return View();
         }
